@@ -1,22 +1,28 @@
 import iconFilter from "../assets/mobile/icon-filter.svg";
 import search from "../assets/desktop/icon-search.svg";
 
-type formatData = {
-  sunMoon: boolean;
-};
+import { useUserContext } from "../context";
+export default function () {
+  const context = useUserContext();
 
-export default function ({ sunMoon }: formatData) {
+  const handleSearch = (e: { target: { value: string } }) => {
+    const searchValue = e.target.value.toLowerCase();
+    context.setSearch(searchValue);
+  };
   return (
     <div
       className={`  ${
-        sunMoon ? "bg-[#ffffff]" : "bg-[#19202D]"
+        context.sunMoon ? "bg-[#ffffff]" : "bg-[#19202D]"
       } w-[327px] h-20 flex flex-row items-center  justify-center gap-6 rounded-md absolute  top-24 `}
     >
       <input
         className={` ${
-          sunMoon ? "bg-[#ffffff] text-black" : "bg-[#19202D] text-white"
+          context.sunMoon
+            ? "bg-[#ffffff] text-black"
+            : "bg-[#19202D] text-white"
         }`}
         type="text"
+        onChange={handleSearch}
         placeholder="Filter by title…"
       />
       <div className=" flex flex-row gap-6 items-center justify-center">
