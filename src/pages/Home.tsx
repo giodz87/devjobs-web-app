@@ -11,11 +11,12 @@ import { useUserContext } from "../context";
 export default function Home() {
   const context = useUserContext();
   return (
-    <div className={`  mt-[70px] flex flex-col gap-12 `}>
+    <div className={`mt-[90px] flex flex-col gap-12 relative `}>
       {context.companyData.map(
         (item: {
           id: Key | null | undefined;
-          logo: string;
+          logoBackground: any;
+          logo: string | undefined;
           postedAt:
             | string
             | number
@@ -67,16 +68,16 @@ export default function Home() {
               context.sunMoon
                 ? "bg-[#ffffff] text-[#19202D]"
                 : "bg-[#19202D] text-white"
-            }   pl-8    flex flex-col gap-10  w-[327px] h-[228px] rounded-md`}
+            }   pl-8    flex flex-col gap-10  w-[327px] h-[228px] rounded-md relative`}
             key={item.id}
           >
-            <img
-              className="w-[40px] h-[40px]"
-              src={"../../" + item.logo}
-              alt=""
-            />
-
-            <div className="flex flex-col gap-3">
+            <div
+              style={{ background: item.logoBackground }}
+              className="w-[50px] h-[50px] absolute rounded-2xl flex items-center justify-center top-[-25px] "
+            >
+              <img src={item.logo} alt="" />
+            </div>
+            <div className="flex flex-col gap-3 pt-12">
               <p className=" opacity-50 text-[16px] font-normal">
                 {item.postedAt} . {item.contract}
               </p>

@@ -1,7 +1,7 @@
-import sun from "../assets/desktop/icon-sun.svg";
-import moon from "../assets/desktop/icon-moon.svg";
-import logo from "../assets/desktop/logo.svg";
-import bg from "../assets/mobile/bg-pattern-header.svg";
+import sun from "../../public/assets/desktop/icon-sun.svg";
+import moon from "../../public/assets/desktop/icon-moon.svg";
+import logo from "../../public/assets/desktop/logo.svg";
+import bg from "../../public/assets/mobile/bg-pattern-header.svg";
 import { useUserContext } from "../context";
 
 export default function Header() {

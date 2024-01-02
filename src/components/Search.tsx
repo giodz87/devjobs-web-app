@@ -1,6 +1,6 @@
-import iconFilter from "../assets/mobile/icon-filter.svg";
-import search from "../assets/desktop/icon-search.svg";
-
+import iconFilter from "../../public/assets/mobile/icon-filter.svg";
+import searchbg from "../../public/assets/logos/searchbg.svg";
+import lightFilter from "../../public/assets/logos/Path.svg";
 import { useUserContext } from "../context";
 export default function () {
   const context = useUserContext();
@@ -9,6 +9,7 @@ export default function () {
     const searchValue = e.target.value.toLowerCase();
     context.setSearch(searchValue);
   };
+
   return (
     <div
       className={`  ${
@@ -25,10 +26,20 @@ export default function () {
         onChange={handleSearch}
         placeholder="Filter by title…"
       />
-      <div className=" flex flex-row gap-6 items-center justify-center">
-        <img src={iconFilter} alt="" />
+      <div
+        onClick={() => {
+          context.setCheck(!context.check);
+        }}
+        className=" flex flex-row gap-6 items-center justify-center"
+      >
+        {context.sunMoon ? (
+          <img src={iconFilter} alt="" />
+        ) : (
+          <img src={lightFilter} alt="" />
+        )}
+
         <button className=" bg-red-300 w-12 h-12 rounded-md relative flex items-center justify-center">
-          <img className=" " src={search} alt="" />
+          <img className=" " src={searchbg} alt="" />
         </button>
       </div>
     </div>
