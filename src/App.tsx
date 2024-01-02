@@ -4,12 +4,14 @@ import data from "../data.json";
 import Header from "./components/Header";
 import Search from "./components/Search";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-
 import Home from "./pages/Home";
 import FilterByLocation from "./components/FilterByLocation";
+import Information from "./pages/Information";
 export type MyContextProps = {
   sunMoon: boolean;
   setSunMoon: (sunMoon: boolean) => void;
+  searchHidden: boolean;
+  setSearchHidden: (value: boolean) => void;
   search: string | undefined;
   setSearch: (search: string) => void;
   companyData: any;
@@ -23,7 +25,9 @@ export type MyContextProps = {
 
 function App() {
   const [sunMoon, setSunMoon] = useState<boolean>(true);
+  const [searchHidden, setSearchHidden] = useState<boolean>(true);
   const [search, setSearch] = useState<string>();
+
   const [check, setCheck] = useState<boolean>(false);
   const [location, setLocation] = useState<string>();
   const [fullTime, setFullTime] = useState<string>();
@@ -57,15 +61,18 @@ function App() {
         setLocation,
         fullTime,
         setFullTime,
+        searchHidden,
+        setSearchHidden,
       }}
     >
       <BrowserRouter>
         <Header />
-        <Search />
+        {searchHidden ? <Search /> : ""}
         {check ? <FilterByLocation /> : ""}
 
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/information" element={<Information />} />
         </Routes>
       </BrowserRouter>
     </MyContext.Provider>

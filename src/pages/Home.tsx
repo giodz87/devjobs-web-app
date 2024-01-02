@@ -7,7 +7,7 @@ import {
 } from "react";
 
 import { useUserContext } from "../context";
-
+import { Link } from "react-router-dom";
 export default function Home() {
   const context = useUserContext();
   return (
@@ -84,9 +84,16 @@ export default function Home() {
               <p className=" text-[20px] font-bold">{item.position}</p>
               <p className=" opacity-50">{item.company}</p>
             </div>
-            <p className="text-[#5964E0] text-[14px] font-bold ">
-              {item.location}
-            </p>
+            <Link to={"/information"}>
+              <button
+                onClick={() => {
+                  context.setSearchHidden(false);
+                }}
+                className="text-[#5964E0] text-[14px] font-bold "
+              >
+                {item.location}
+              </button>
+            </Link>
           </div>
         )
       )}
