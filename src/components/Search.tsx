@@ -26,18 +26,18 @@ export default function () {
         onChange={handleSearch}
         placeholder="Filter by title…"
       />
-      <div
-        onClick={() => {
-          context.setCheck(!context.check);
-        }}
-        className=" flex flex-row gap-6 items-center justify-center"
-      >
-        {context.sunMoon ? (
-          <img src={iconFilter} alt="" />
-        ) : (
-          <img src={lightFilter} alt="" />
-        )}
-
+      <div className=" flex flex-row gap-6 items-center justify-center">
+        <div
+          onClick={() => {
+            context.setCheck(!context.check);
+          }}
+        >
+          {context.sunMoon ? (
+            <img src={iconFilter} alt="" />
+          ) : (
+            <img src={lightFilter} alt="" />
+          )}
+        </div>
         <button className=" bg-red-300 w-12 h-12 rounded-md relative flex items-center justify-center">
           <img className=" " src={searchbg} alt="" />
         </button>

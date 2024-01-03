@@ -84,15 +84,14 @@ export default function Home() {
               <p className=" text-[20px] font-bold">{item.position}</p>
               <p className=" opacity-50">{item.company}</p>
             </div>
-            <Link to={"/information"}>
-              <button
-                onClick={() => {
-                  context.setSearchHidden(false);
-                }}
-                className="text-[#5964E0] text-[14px] font-bold "
-              >
-                {item.location}
-              </button>
+            <Link
+              to={"/information"}
+              onClick={() => {
+                context.setSearchHidden(false);
+              }}
+              className="text-[#5964E0] text-[14px] font-bold "
+            >
+              {item.location}
             </Link>
           </div>
         )
