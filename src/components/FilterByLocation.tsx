@@ -12,6 +12,10 @@ export default function FilterByLocation() {
     context.setFullTime(isFullTime ? "true" : "false");
   };
 
+  const handleFilter = () => {
+    context.findLocation();
+    context.setCheck(false);
+  };
   return (
     <section
       onClick={() => {
@@ -43,7 +47,10 @@ export default function FilterByLocation() {
           <input type="checkbox" onChange={handleFullTime} />
           <strong>Full Time Only</strong>
         </div>
-        <button className="w-[279px] h-[48px]  rounded-md bg-[#5964E0] text-white ml-6 mb-5">
+        <button
+          onClick={handleFilter}
+          className="w-[279px] h-[48px]  rounded-md bg-[#5964E0] text-white ml-6 mb-5"
+        >
           Search
         </button>
       </div>

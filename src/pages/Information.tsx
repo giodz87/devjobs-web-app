@@ -3,9 +3,8 @@ import { useUserContext } from "../context";
 
 export default function Information() {
   const context = useUserContext();
-  // const roleData = data.filter((item) => item.role.items.toLowerCase());
 
-  const moreInfo = context.companyData && context.companyData[0];
+  const moreInfo = context.companyData && context.companyData[2];
 
   return (
     <div className=" flex flex-col items-center justify-center gap-6">

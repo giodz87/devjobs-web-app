@@ -5,11 +5,6 @@ import { useUserContext } from "../context";
 export default function () {
   const context = useUserContext();
 
-  const handleSearch = (e: { target: { value: string } }) => {
-    const searchValue = e.target.value.toLowerCase();
-    context.setSearch(searchValue);
-  };
-
   return (
     <div
       className={`  ${
@@ -23,7 +18,7 @@ export default function () {
             : "bg-[#19202D] text-white"
         }`}
         type="text"
-        onChange={handleSearch}
+        onChange={(e) => context.setSearch(e.target.value)}
         placeholder="Filter by title…"
       />
       <div className=" flex flex-row gap-6 items-center justify-center">

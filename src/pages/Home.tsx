@@ -10,9 +10,13 @@ import { useUserContext } from "../context";
 import { Link } from "react-router-dom";
 export default function Home() {
   const context = useUserContext();
+
+  const dataToDisplay = context.location
+    ? context.locationFind
+    : context.companyData;
   return (
     <div className={`mt-[90px] flex flex-col gap-12 relative `}>
-      {context.companyData.map(
+      {dataToDisplay.map(
         (item: {
           id: Key | null | undefined;
           logoBackground: any;

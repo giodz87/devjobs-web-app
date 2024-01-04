@@ -15,29 +15,53 @@ export type MyContextProps = {
   search: string | undefined;
   setSearch: (search: string) => void;
   companyData: any;
+  findLocation: any;
+
   check: boolean;
   setCheck: (check: boolean) => void;
   location: string | undefined;
   setLocation: (Location: string) => void;
   fullTime: string | undefined;
   setFullTime: (fullTime: string) => void;
+  locationFind: any;
 };
 
 function App() {
   const [sunMoon, setSunMoon] = useState<boolean>(true);
   const [searchHidden, setSearchHidden] = useState<boolean>(true);
-  const [search, setSearch] = useState<string>();
+  const [search, setSearch] = useState<string>("");
 
   const [check, setCheck] = useState<boolean>(false);
-  const [location, setLocation] = useState<string>();
-  const [fullTime, setFullTime] = useState<string>();
 
-  const companyData = data.filter(
-    (item) =>
+  const [fullTime, setFullTime] = useState<string>("");
+
+  const [location, setLocation] = useState<string>("");
+  const [locationFind, setLocationFind] = useState<any>();
+
+  // const companyData = data.filter((item) =>
+  //   item.position.toLowerCase().includes(search || "")
+  // );
+
+  // const fullTimeJobs = data.filter((item) =>
+  //   item.contract
+  //     .toLowerCase()
+  //     .includes(fullTime === "true" ? "full time" : "part time")
+  // );
+  const companyData = data.filter((item) => {
+    return (
       item.position.toLowerCase().includes(search || "") &&
-      item.location.toLowerCase().includes(location || "") &&
-      item.contract.toLowerCase().includes(fullTime || "")
-  );
+      item.contract
+        .toLowerCase()
+        .includes(fullTime === "true" ? "full time" : "part time")
+    );
+  });
+  const findLocation = () => {
+    const find = data.filter((item) =>
+      item.location.toLowerCase().includes((location || "").toLowerCase())
+    );
+
+    setLocationFind(find);
+  };
 
   useEffect(() => {
     const body = document.body;
@@ -63,6 +87,8 @@ function App() {
         setFullTime,
         searchHidden,
         setSearchHidden,
+        findLocation,
+        locationFind,
       }}
     >
       <BrowserRouter>
