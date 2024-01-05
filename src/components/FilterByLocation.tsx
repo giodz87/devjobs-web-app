@@ -9,13 +9,9 @@ export default function FilterByLocation() {
   };
   const handleFullTime = (e: { target: { checked: boolean } }) => {
     const isFullTime = e.target.checked;
-    context.setFullTime(isFullTime ? "true" : "false");
+    context.setFullTime(isFullTime);
   };
-
-  const handleFilter = () => {
-    context.findLocation();
-    context.setCheck(false);
-  };
+  console.log(context.fullTime);
   return (
     <section
       onClick={() => {
@@ -44,11 +40,18 @@ export default function FilterByLocation() {
         </div>
         <div className="w-full bg-[#6E8098] h-[1px] opacity-[0.2]"></div>
         <div className="pl-6 flex flex-row gap-4 py-5">
-          <input type="checkbox" onChange={handleFullTime} />
+          <input
+            checked={context.fullTime}
+            type="checkbox"
+            onChange={handleFullTime}
+          />
           <strong>Full Time Only</strong>
         </div>
         <button
-          onClick={handleFilter}
+          onClick={() => {
+            context.dataFilter();
+            context.setCheck(false);
+          }}
           className="w-[279px] h-[48px]  rounded-md bg-[#5964E0] text-white ml-6 mb-5"
         >
           Search

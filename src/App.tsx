@@ -14,53 +14,37 @@ export type MyContextProps = {
   setSearchHidden: (value: boolean) => void;
   search: string | undefined;
   setSearch: (search: string) => void;
-  companyData: any;
-  findLocation: any;
-
+  dataFilter: any;
+  dataMap: any;
   check: boolean;
   setCheck: (check: boolean) => void;
   location: string | undefined;
   setLocation: (Location: string) => void;
-  fullTime: string | undefined;
-  setFullTime: (fullTime: string) => void;
-  locationFind: any;
+  fullTime: boolean;
+  setFullTime: (fullTime: boolean) => void;
 };
 
 function App() {
   const [sunMoon, setSunMoon] = useState<boolean>(true);
   const [searchHidden, setSearchHidden] = useState<boolean>(true);
-  const [search, setSearch] = useState<string>("");
-
   const [check, setCheck] = useState<boolean>(false);
 
-  const [fullTime, setFullTime] = useState<string>("");
-
+  const [search, setSearch] = useState<string>("");
+  const [fullTime, setFullTime] = useState<boolean>(false);
   const [location, setLocation] = useState<string>("");
-  const [locationFind, setLocationFind] = useState<any>();
 
-  // const companyData = data.filter((item) =>
-  //   item.position.toLowerCase().includes(search || "")
-  // );
+  const [dataMap, setDataMap] = useState<any>([...data]);
 
-  // const fullTimeJobs = data.filter((item) =>
-  //   item.contract
-  //     .toLowerCase()
-  //     .includes(fullTime === "true" ? "full time" : "part time")
-  // );
-  const companyData = data.filter((item) => {
-    return (
-      item.position.toLowerCase().includes(search || "") &&
-      item.contract
-        .toLowerCase()
-        .includes(fullTime === "true" ? "full time" : "part time")
+  const dataFilter = () => {
+    const companyData = data.filter(
+      (item: { position: string; location: string; contract: string }) =>
+        item.position.toLowerCase().includes(search || "") &&
+        item.location.toLowerCase().includes(location || "") &&
+        fullTime
+          ? item.contract.toLowerCase().includes("full time")
+          : true
     );
-  });
-  const findLocation = () => {
-    const find = data.filter((item) =>
-      item.location.toLowerCase().includes((location || "").toLowerCase())
-    );
-
-    setLocationFind(find);
+    setDataMap([...companyData]);
   };
 
   useEffect(() => {
@@ -78,7 +62,7 @@ function App() {
         setSunMoon,
         search,
         setSearch,
-        companyData,
+        dataFilter,
         check,
         setCheck,
         location,
@@ -87,8 +71,7 @@ function App() {
         setFullTime,
         searchHidden,
         setSearchHidden,
-        findLocation,
-        locationFind,
+        dataMap,
       }}
     >
       <BrowserRouter>

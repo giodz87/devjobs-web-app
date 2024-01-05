@@ -18,7 +18,9 @@ export default function () {
             : "bg-[#19202D] text-white"
         }`}
         type="text"
-        onChange={(e) => context.setSearch(e.target.value)}
+        onChange={(e) => {
+          context.setSearch(e.target.value);
+        }}
         placeholder="Filter by title…"
       />
       <div className=" flex flex-row gap-6 items-center justify-center">
@@ -33,7 +35,12 @@ export default function () {
             <img src={lightFilter} alt="" />
           )}
         </div>
-        <button className=" bg-red-300 w-12 h-12 rounded-md relative flex items-center justify-center">
+        <button
+          onClick={() => {
+            context.dataFilter();
+          }}
+          className=" bg-red-300 w-12 h-12 rounded-md relative flex items-center justify-center"
+        >
           <img className=" " src={searchbg} alt="" />
         </button>
       </div>
