@@ -81,7 +81,8 @@ function App() {
 
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/information" element={<Information />} />
+
+          <Route path="/:location" element={<Information />} />
         </Routes>
       </BrowserRouter>
     </MyContext.Provider>

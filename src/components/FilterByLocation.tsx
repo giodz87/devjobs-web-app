@@ -11,13 +11,13 @@ export default function FilterByLocation() {
     const isFullTime = e.target.checked;
     context.setFullTime(isFullTime);
   };
-  console.log(context.fullTime);
+
   return (
     <section
       onClick={() => {
         context.setCheck(!context.check);
       }}
-      className="w-full h-[100vh] bg-black bg-opacity-70 flex items-center justify-center   absolute top-0 z-10 "
+      className=" w-full h-[100vh] bg-black bg-opacity-70 flex items-center justify-center   absolute top-0 z-10 md:hidden "
     >
       <div
         onClick={(e) => {
