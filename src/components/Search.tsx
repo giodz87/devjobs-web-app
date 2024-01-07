@@ -7,15 +7,15 @@ import { useUserContext } from "../context";
 export default function () {
   const context = useUserContext();
 
-  const filter = (e: { target: { value: string } }) => {
+  const handleFilter = (e: { target: { value: string } }) => {
     const filterValue = e.target.value.toLowerCase();
     context.setLocation(filterValue);
   };
-  const fullTime = (e: { target: { checked: boolean } }) => {
+  const handleFullTime = (e: { target: { checked: boolean } }) => {
     const isFullTime = e.target.checked;
     context.setFullTime(isFullTime);
   };
-
+  console.log(context.location, context.search);
   return (
     <>
       <div
@@ -95,7 +95,7 @@ export default function () {
             }  w-[213px] h-[80px] pl-[57px] border-r-[1px] xl:w-[300px] `}
             type="text"
             placeholder="Filter by location…"
-            onChange={filter}
+            onChange={handleFilter}
           />
         </div>
         <div className="flex flex-row items-center justify-around  pl-[20px] w-[252px] h-[80px] xl:w-[345px] ">
@@ -103,7 +103,7 @@ export default function () {
             <input
               checked={context.fullTime}
               type="checkbox"
-              onChange={fullTime}
+              onChange={handleFullTime}
             />
             <p>Full Time </p>
           </div>

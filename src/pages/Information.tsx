@@ -13,40 +13,47 @@ export default function Information() {
     context.setSearchHidden(false);
   }, []);
   return (
-    <div className=" flex flex-col items-center justify-center gap-6">
+    <div className=" flex flex-col items-center justify-center gap-6  w-full">
       <div>
         {locationData && (
-          <div>
-            <section
-              className={` ${
-                context.sunMoon
-                  ? "bg-[#ffffff] text-[#19202D]"
-                  : "bg-[#19202D] text-white"
-              }  -translate-y-4   flex flex-col gap-10  w-[327px] h-[228px] rounded-md relative items-center justify-cente`}
-              key={locationData.id}
-            >
+          <section
+            className={` ${
+              context.sunMoon
+                ? "bg-[#ffffff] text-[#19202D]"
+                : "bg-[#19202D] text-white"
+            }  -translate-y-4   flex flex-col gap-10  w-[327px] h-[228px] rounded-md relative items-center justify-cente  md:flex-row md:items-center md:justify-between md:w-[689px] md:h-[140px] md:-translate-y-[40px]  xl:w-[730px]`}
+            key={locationData.id}
+          >
+            <div className="flex flex-col items-center justify-center md:flex-row  gap-10">
               <div
                 style={{ background: locationData.logoBackground }}
-                className="w-[50px] h-[50px] absolute rounded-2xl flex items-center justify-center top-[-25px] "
+                className="w-[50px] h-[50px] absolute rounded-2xl flex items-center justify-center top-[-25px] md:w-[140px] md:h-[140px] md:top-0 md:left-0 md:rounded-md "
               >
-                <img src={locationData.logo} alt="" />
+                <img
+                  className=" md:w-[60px] h-[25px] "
+                  src={locationData.logo}
+                  alt=""
+                />
               </div>
-              <div className="flex flex-col items-center justify-between gap-3">
-                <p className="mt-[50px] text-[20px] font-bold">
+              <div className="flex flex-col items-center justify-between gap-3  md:items-start md:translate-x-[180px] md:mb-[50px]">
+                <p className="mt-[50px] text-[20px] font-bold md:text-[24px]">
                   {locationData.company}
                 </p>
-                <p>{locationData.company}.com</p>
-              </div>
-              <Link
-                to={locationData?.website}
-                className="w-[147px] h-[48px] rounded-[5px] bg-[#cdd0ec] flex items-center justify-center "
-              >
-                <p className=" opacity-100 text-[#5964E0] text-[16px] font-bold">
-                  Company Site
+                <p className="text-[#6E8098] text-[16px] font-normal">
+                  {locationData.company}.com
                 </p>
-              </Link>
-            </section>
-          </div>
+              </div>
+            </div>
+
+            <Link
+              to={locationData?.website}
+              className="w-[147px] h-[48px] rounded-[5px] bg-[#cdd0ec] flex items-center justify-center md:mr-[40px] "
+            >
+              <p className=" opacity-100 text-[#5964E0] text-[16px] font-bold">
+                Company Site
+              </p>
+            </Link>
+          </section>
         )}
       </div>
 
@@ -58,25 +65,27 @@ export default function Information() {
                 context.sunMoon
                   ? "bg-[#ffffff] text-[#19202D]"
                   : "bg-[#19202D] text-white"
-              }      flex flex-col gap-10  w-[327px]  rounded-md relative items-start px-6 pt-10 justify-cente`}
+              }      flex flex-col gap-10  w-[327px]  rounded-md relative items-start px-6 pt-10 justify-cente md:w-[689px] xl:w-[730px]`}
             >
-              <div className="flex flex-col items-start gap-3">
-                <div>
-                  <p className="text-[#6E8098] text-[16px] font-normal">
-                    {" "}
-                    {locationData.postedAt} . {locationData.contract}
+              <div className="flex flex-col items-center justify-center gap-[54px] md:flex-row md:justify-between md:w-full">
+                <div className="flex flex-col items-start gap-3">
+                  <div>
+                    <p className="text-[#6E8098] text-[16px] font-normal">
+                      {" "}
+                      {locationData.postedAt} . {locationData.contract}
+                    </p>
+                  </div>
+                  <h2 className="text-[#19202D] text-[20px] font-bold">
+                    {locationData.position}
+                  </h2>
+                  <p className="text-[#5964E0] text-[14px] font-bold">
+                    {locationData.location}
                   </p>
                 </div>
-                <h2 className="text-[#19202D] text-[20px] font-bold">
-                  {locationData.position}
-                </h2>
-                <p className="text-[#5964E0] text-[14px] font-bold">
-                  {locationData.location}
-                </p>
+                <button className="bg-[#5964E0] w-[279px] h-[48px] rounded-[5px] text-[#fff] text-[16px]  font-bold md:w-[141px]">
+                  Apply Now
+                </button>
               </div>
-              <button className="bg-[#5964E0] w-[279px] h-[48px] rounded-[5px] text-[#fff] text-[16px]  font-bold">
-                Apply Now
-              </button>
               <p className="text-[#6E8098] text-[16px] font-normal leading-6">
                 {locationData.description}
               </p>
@@ -144,11 +153,23 @@ export default function Information() {
           context.sunMoon
             ? "bg-[#ffffff] text-[#19202D]"
             : "bg-[#19202D] text-white"
-        }  rounded-md w-[375px] h-[96px] flex items-center justify-center`}
+        }  rounded-md w-full h-[96px] flex items-center justify-center  `}
       >
-        <button className="bg-[#5964E0] w-[279px] h-[48px] rounded-[5px] text-[#fff] text-[16px]  font-bold">
-          Apply Now
-        </button>
+        {" "}
+        <div className="md:flex md:flex-row md:items-center md:justify-between md:w-[689px] xl:w-[730px] ">
+          {locationData && (
+            <div className="hidden  md:flex md:flex-col md:items-start md:justify-between">
+              <p className="text-[20px] font-bold"> {locationData.position}</p>
+              <p className="text-[#6E8098] text-[16px] font-normal">
+                So Digital Inc.
+              </p>
+            </div>
+          )}
+
+          <button className="bg-[#5964E0] w-[279px] h-[48px] rounded-[5px] text-[#fff] text-[16px]  font-bold md:w-[141px]">
+            Apply Now
+          </button>
+        </div>
       </div>
     </div>
   );
