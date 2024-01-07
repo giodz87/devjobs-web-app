@@ -162,17 +162,23 @@ export default function Information() {
         {" "}
         <div className="md:flex md:flex-row md:items-center md:justify-between md:w-[689px] xl:w-[730px] ">
           {locationData && (
-            <div className="hidden  md:flex md:flex-col md:items-start md:justify-between">
-              <p className="text-[20px] font-bold"> {locationData.position}</p>
-              <p className="text-[#6E8098] text-[16px] font-normal">
-                So Digital Inc.
-              </p>
-            </div>
+            <>
+              <div className="hidden  md:flex md:flex-col md:items-start md:justify-between">
+                <p className="text-[20px] font-bold">
+                  {" "}
+                  {locationData.position}
+                </p>
+                <p className="text-[#6E8098] text-[16px] font-normal">
+                  So Digital Inc.
+                </p>
+              </div>
+              <Link to={locationData?.apply}>
+                <button className="bg-[#5964E0] hover:bg-[#939BF4] w-[279px] h-[48px] rounded-[5px] text-[#fff] text-[16px]  font-bold md:w-[141px]">
+                  Apply Now
+                </button>
+              </Link>
+            </>
           )}
-
-          <button className="bg-[#5964E0] hover:bg-[#939BF4] w-[279px] h-[48px] rounded-[5px] text-[#fff] text-[16px]  font-bold md:w-[141px]">
-            Apply Now
-          </button>
         </div>
       </div>
     </div>

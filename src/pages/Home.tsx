@@ -88,15 +88,16 @@ export default function Home() {
                 <p className=" opacity-50 text-[16px] font-normal">
                   {item.postedAt} . {item.contract}
                 </p>
-                <p className="hover:text-[#6E8098] text-[18px] font-bold cursor-pointer">
-                  {item.position}
-                </p>
+                <Link to={`/${item.location}`}>
+                  <p className="hover:text-[#6E8098] text-[18px] font-bold cursor-pointer">
+                    {item.position}
+                  </p>
+                </Link>
                 <p className=" opacity-50">{item.company}</p>
               </div>
               <Link
                 to={`/${item.location}`}
-                onClick={() => {}}
-                className="text-[#5964E0] text-[14px] font-bold "
+                className="text-[#5964E0] hover:text-[#939BF4] text-[14px] font-bold "
               >
                 {item.location}
               </Link>
