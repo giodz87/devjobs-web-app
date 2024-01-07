@@ -104,7 +104,7 @@ export default function Home() {
       </div>
       <button
         className={` text-white
-         w-[141px] h-[48px] rounded-md bg-[#5964E0]`}
+         w-[141px] h-[48px] rounded-md bg-[#5964E0] hover:bg-[#939BF4]`}
       >
         Load More
       </button>

@@ -52,7 +52,7 @@ export default function FilterByLocation() {
             context.dataFilter();
             context.setCheck(false);
           }}
-          className="w-[279px] h-[48px]  rounded-md bg-[#5964E0] text-white ml-6 mb-5"
+          className="w-[279px] h-[48px]  rounded-md bg-[#5964E0]  hover:bg-[#939BF4] text-white ml-6 mb-5"
         >
           Search
         </button>

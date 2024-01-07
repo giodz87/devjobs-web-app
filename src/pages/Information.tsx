@@ -47,9 +47,13 @@ export default function Information() {
 
             <Link
               to={locationData?.website}
-              className="w-[147px] h-[48px] rounded-[5px] bg-[#cdd0ec] flex items-center justify-center md:mr-[40px] "
+              className={` ${
+                context.sunMoon
+                  ? "bg-[#cdd0ec] hover:bg-[#9297c5]"
+                  : "bg-[#1e2637] hover:bg-[#29354d]"
+              }   w-[147px] h-[48px] rounded-[5px]   flex items-center justify-center md:mr-[40px] `}
             >
-              <p className=" opacity-100 text-[#5964E0] text-[16px] font-bold">
+              <p className=" opacity-100 text-[#5964E0] text-[16px] font-bold ">
                 Company Site
               </p>
             </Link>
@@ -82,7 +86,7 @@ export default function Information() {
                     {locationData.location}
                   </p>
                 </div>
-                <button className="bg-[#5964E0] w-[279px] h-[48px] rounded-[5px] text-[#fff] text-[16px]  font-bold md:w-[141px]">
+                <button className="bg-[#5964E0] hover:bg-[#939BF4] w-[279px] h-[48px] rounded-[5px] text-[#fff] text-[16px]  font-bold md:w-[141px]">
                   Apply Now
                 </button>
               </div>
@@ -166,7 +170,7 @@ export default function Information() {
             </div>
           )}
 
-          <button className="bg-[#5964E0] w-[279px] h-[48px] rounded-[5px] text-[#fff] text-[16px]  font-bold md:w-[141px]">
+          <button className="bg-[#5964E0] hover:bg-[#939BF4] w-[279px] h-[48px] rounded-[5px] text-[#fff] text-[16px]  font-bold md:w-[141px]">
             Apply Now
           </button>
         </div>

@@ -51,7 +51,7 @@ export default function () {
             onClick={() => {
               context.dataFilter();
             }}
-            className=" bg-red-300 w-12 h-12 rounded-md relative flex items-center justify-center"
+            className="w-12 h-12 rounded-md relative flex items-center justify-center  hover:bg-[#939BF4]"
           >
             <img className=" " src={searchbg} alt="" />
           </button>
