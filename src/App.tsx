@@ -7,6 +7,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
 import FilterByLocation from "./components/FilterByLocation";
 import Information from "./pages/Information";
+import ScrollToTop from "./utils/ScrollOnTop";
 export type MyContextProps = {
   sunMoon: boolean;
   setSunMoon: (sunMoon: boolean) => void;
@@ -75,6 +76,7 @@ function App() {
       }}
     >
       <BrowserRouter>
+        <ScrollToTop />
         <Header />
         {searchHidden ? <Search /> : ""}
         {check ? <FilterByLocation /> : ""}
