@@ -28,7 +28,7 @@ export default function FilterByLocation() {
       >
         <div className=" relative">
           <input
-            className="w-[327px]  h-[72px] pl-[57px] rounded-t-md  outline-none"
+            className="w-[327px]  h-[72px] pl-[57px] rounded-t-md  outline-none cursor-pointer"
             type="text"
             placeholder="Filter by location…"
             onChange={handlefilter}
@@ -60,7 +60,7 @@ export default function FilterByLocation() {
               ""
             )}
           </label>
-          <strong>Full Time Only</strong>
+          <p className="text-[16px] font-bold">Full Time Only</p>
         </div>
         <button
           onClick={() => {

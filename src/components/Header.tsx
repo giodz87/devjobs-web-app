@@ -28,7 +28,7 @@ export default function Header() {
             className="w-12 h-6 bg-[#ffffff] rounded-xl relative"
           >
             <div
-              className={`w-3.5 h-3.5 rounded-full bg-[#5964E0]   hover:bg-[#939BF4] absolute top-[5px] ${
+              className={`w-3.5 h-3.5 rounded-full bg-[#5964E0]   hover:bg-[#939BF4] absolute top-[5px] cursor-pointer ${
                 context.sunMoon ? "left-1" : "right-1"
               } `}
             ></div>

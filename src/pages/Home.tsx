@@ -15,7 +15,7 @@ export default function Home() {
     context.setSearchHidden(true);
   }, []);
   return (
-    <div className="flex flex-col items-center justify-center">
+    <div className="flex flex-col items-center justify-center ">
       <div
         className={`mt-[90px] flex flex-col  items-center justify-between gap-12 relative md:flex-row md:flex-wrap md:w-[689px] md:gap-3  md:mt-[45px] xl:w-[1110px]`}
       >
@@ -88,7 +88,9 @@ export default function Home() {
                 <p className=" opacity-50 text-[16px] font-normal">
                   {item.postedAt} . {item.contract}
                 </p>
-                <p className=" text-[18px] font-bold">{item.position}</p>
+                <p className="hover:text-[#6E8098] text-[18px] font-bold cursor-pointer">
+                  {item.position}
+                </p>
                 <p className=" opacity-50">{item.company}</p>
               </div>
               <Link
@@ -104,7 +106,7 @@ export default function Home() {
       </div>
       <button
         className={` text-white
-         w-[141px] h-[48px] rounded-md bg-[#5964E0] hover:bg-[#939BF4]`}
+         w-[141px] h-[48px] rounded-md bg-[#5964E0] hover:bg-[#939BF4] my-[32px]`}
       >
         Load More
       </button>

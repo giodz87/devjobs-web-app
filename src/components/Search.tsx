@@ -29,7 +29,7 @@ export default function () {
             context.sunMoon
               ? "bg-[#ffffff] text-black"
               : "bg-[#19202D] text-white"
-          } outline-none`}
+          } outline-none cursor-pointer`}
           type="text"
           onChange={(e) => {
             context.setSearch(e.target.value);
@@ -73,7 +73,7 @@ export default function () {
           <input
             className={` ${
               context.sunMoon ? "bg-[#ffffff]" : "bg-[#19202D] border-[#6E8098]"
-            }  w-[222px] h-[80px] border-r-[1px] pl-[68px]  rounded-l-lg xl:w-[466px] outline-none`}
+            }  w-[222px] h-[80px] border-r-[1px] pl-[68px]  rounded-l-lg xl:w-[466px] outline-none cursor-pointer`}
             type="text"
             placeholder="Filter by title…"
             alt="Search img"
@@ -93,14 +93,14 @@ export default function () {
               context.sunMoon
                 ? "bg-[#ffffff]"
                 : "bg-[#19202D]  border-[#6E8098]"
-            }  w-[213px] h-[80px] pl-[57px] border-r-[1px] xl:w-[300px] outline-none `}
+            }  w-[213px] h-[80px] pl-[57px] border-r-[1px] xl:w-[300px] outline-none cursor-pointer`}
             type="text"
             placeholder="Filter by location…"
             onChange={handleFilter}
           />
         </div>
         <div className="flex flex-row items-center justify-around  pl-[20px] w-[252px] h-[80px] xl:w-[345px] ">
-          <div className="flex flex-row items-center gap-4">
+          <div className="flex flex-row items-center gap-4 justify-center">
             <label className=" relative">
               <input
                 checked={context.fullTime}
@@ -120,13 +120,13 @@ export default function () {
                 ""
               )}
             </label>
-            <p>Full Time </p>
+            <p className="text-[16px] font-bold">Full Time </p>
           </div>
           <button
             onClick={() => {
               context.dataFilter();
             }}
-            className="bg-[#5964E0] hover:bg-[#939BF4] ml-[12px] rounded-[5px] w-[80px] h-12  text-white text-[16px] font-bold xl:w-[123px]"
+            className="bg-[#5964E0] hover:bg-[#939BF4] ml-[12px] rounded-[5px] w-[80px] h-12  text-white text-[16px] font-bold xl:w-[123px] cursor-pointer"
           >
             Search
           </button>
