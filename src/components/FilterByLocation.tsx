@@ -1,5 +1,6 @@
 import location from "../../public/assets/desktop/icon-location.svg";
 import { useUserContext } from "../context";
+import check from "../../public/assets/desktop/icon-check.svg";
 export default function FilterByLocation() {
   const context = useUserContext();
 
@@ -27,7 +28,7 @@ export default function FilterByLocation() {
       >
         <div className=" relative">
           <input
-            className="w-[327px]  h-[72px] pl-[57px] rounded-t-md "
+            className="w-[327px]  h-[72px] pl-[57px] rounded-t-md  outline-none"
             type="text"
             placeholder="Filter by location…"
             onChange={handlefilter}
@@ -40,11 +41,25 @@ export default function FilterByLocation() {
         </div>
         <div className="w-full bg-[#6E8098] h-[1px] opacity-[0.2]"></div>
         <div className="pl-6 flex flex-row gap-4 py-5">
-          <input
-            checked={context.fullTime}
-            type="checkbox"
-            onChange={handleFullTime}
-          />
+          <label className=" relative">
+            <input
+              checked={context.fullTime}
+              type="checkbox"
+              onChange={handleFullTime}
+              className={` ${
+                context.sunMoon
+                  ? "bg-[#19202D] opacity-[0.1035]"
+                  : "bg-[#FFFFFF] opacity-[0.1035]"
+              } appearance-none w-[24px] h-[24px]  cursor-pointer`}
+            />
+            {context.fullTime ? (
+              <div className=" w-[24px] h-[24px] absolute top-0 bg-[#5964E0] flex items-center justify-center cursor-pointer">
+                <img src={check} alt="Checked" />
+              </div>
+            ) : (
+              ""
+            )}
+          </label>
           <strong>Full Time Only</strong>
         </div>
         <button
