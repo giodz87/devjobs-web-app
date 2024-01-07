@@ -18,17 +18,25 @@ export default function FilterByLocation() {
       onClick={() => {
         context.setCheck(!context.check);
       }}
-      className=" w-full h-[100vh] bg-black bg-opacity-70 flex items-center justify-center   absolute top-0 z-10 md:hidden "
+      className={`  w-full h-[100vh] bg-black bg-opacity-70 flex items-center justify-center   absolute top-0 z-10 md:hidden `}
     >
       <div
         onClick={(e) => {
           e.stopPropagation();
         }}
-        className="z-3  bg-white w-[327px]  opacity-100 flex flex-col items-start  justify-between rounded-md"
+        className={` ${
+          context.sunMoon
+            ? "bg-[#ffffff] text-[#19202D]"
+            : "bg-[#19202D] text-white"
+        } z-3   w-[327px]  opacity-100 flex flex-col items-start  justify-between rounded-md`}
       >
         <div className=" relative">
           <input
-            className="w-[327px]  h-[72px] pl-[57px] rounded-t-md  outline-none cursor-pointer"
+            className={`${
+              context.sunMoon
+                ? "bg-[#ffffff] text-[#19202D]"
+                : "bg-[#19202D] text-white"
+            }   w-[327px]  h-[72px] pl-[57px] rounded-t-md  outline-none cursor-pointer `}
             type="text"
             placeholder="Filter by location…"
             onChange={handlefilter}
