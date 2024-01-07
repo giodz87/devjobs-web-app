@@ -12,6 +12,7 @@ export default function () {
     const filterValue = e.target.value.toLowerCase();
     context.setLocation(filterValue);
   };
+
   const handleFullTime = (e: { target: { checked: boolean } }) => {
     const isFullTime = e.target.checked;
     context.setFullTime(isFullTime);
@@ -100,7 +101,7 @@ export default function () {
           />
         </div>
         <div className="flex flex-row items-center justify-around  pl-[20px] w-[252px] h-[80px] xl:w-[345px] ">
-          <div className="flex flex-row items-center gap-4 justify-center">
+          <div className="flex flex-row items-center gap-4">
             <label className=" relative">
               <input
                 checked={context.fullTime}
@@ -120,7 +121,7 @@ export default function () {
                 ""
               )}
             </label>
-            <p className="text-[16px] font-bold">Full Time </p>
+            <p className="text-[16px]  font-bold">Full Time </p>
           </div>
           <button
             onClick={() => {

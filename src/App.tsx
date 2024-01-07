@@ -40,12 +40,14 @@ function App() {
     const companyData = data.filter(
       (item: { position: string; location: string; contract: string }) =>
         item.position.toLowerCase().includes(search || "") &&
-        item.location.toLowerCase().includes(location || "") &&
-        fullTime
-          ? item.contract.toLowerCase().includes("full time")
-          : true
+        item.location.toLowerCase().includes(location || "")
+      // fullTime
+      //   ? item.contract.toLowerCase().includes("full time")
+      //   : true
     );
+
     setDataMap([...companyData]);
+    console.log(companyData, location);
   };
 
   useEffect(() => {
