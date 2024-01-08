@@ -45,7 +45,6 @@ function App() {
     );
 
     setDataMap([...companyData]);
-    console.log(companyData, location);
   };
 
   useEffect(() => {

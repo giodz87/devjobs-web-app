@@ -17,7 +17,7 @@ export default function () {
     const isFullTime = e.target.checked;
     context.setFullTime(isFullTime);
   };
-  console.log(context.location, context.search);
+
   return (
     <>
       <div
