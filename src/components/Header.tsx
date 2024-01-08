@@ -6,24 +6,24 @@ export default function Header() {
     <>
       <img
         className="flex md:hidden"
-        src="./public/assets/mobile/bg-pattern-header.svg"
+        src="./assets/mobile/bg-pattern-header.svg"
         alt=""
       />
       <img
         className=" hidden md:flex md:w-full lg:hidden "
-        src="./public/assets/tablet/bg-pattern-header.svg"
+        src="./assets/tablet/bg-pattern-header.svg"
         alt=""
       />
       <img
         className=" hidden lg:flex w-full"
-        src="./public/assets/desktop/bg-pattern-header.svg"
+        src="./assets/desktop/bg-pattern-header.svg"
         alt=""
       />
       <div className=" absolute top-[-20px] flex felx-row justify-between items-center h-36 w-[375px] px-6 md:w-full md:px-10  xl:px-[165px]">
-        <img src="./public/assets/desktop/logo.svg" alt="Logo" />
+        <img src="./assets/desktop/logo.svg" alt="Logo" />
 
         <div className="flex felx-row justify-between items-center gap-4">
-          <img src="./public/assets/desktop/icon-sun.svg" alt="" />
+          <img src="./assets/desktop/icon-sun.svg" alt="" />
           <div
             onClick={() => context.setSunMoon(!context.sunMoon)}
             className="w-12 h-6 bg-[#ffffff] rounded-xl relative"
@@ -34,7 +34,7 @@ export default function Header() {
               } `}
             ></div>
           </div>
-          <img src="./public/assets/desktop/icon-moon.svg" alt="" />
+          <img src="./assets/desktop/icon-moon.svg" alt="" />
         </div>
       </div>
     </>
